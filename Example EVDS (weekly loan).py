@@ -16,7 +16,7 @@ df = evds.get_data(['TP.KREDI.L001'],
                    
                    )
 
-#x = df['Tarih']                                                          # Another codes are optional, its up to you, and determine your codes and use color and label or tittle name.
+#x = df['Date']                                                          # Another codes are optional, its up to you, and determine your codes and use color and label or tittle name.
 #y = df["TP_KREDI_L001"]
 #fig = plt.figure()
 #ax = fig.add_subplot(111)
@@ -27,9 +27,9 @@ df = evds.get_data(['TP.KREDI.L001'],
 #plt.legend()
 
 df['TP_KREDI_L001'] = df['TP_KREDI_L001'].ffill()
-df['Tarih'] = pd.to_datetime(df['Tarih'],dayfirst=True)
+df['Date'] = pd.to_datetime(df['Date'],dayfirst=True)
 
-x = df['Tarih']
+x = df['Date']
 y = (df["TP_KREDI_L001"]/1000)
 
 fig, ax = plt.subplots()
@@ -38,7 +38,7 @@ ax.xaxis.set_major_locator(ticker.MultipleLocator(20))
 ax.xaxis.set_major_formatter(mdates.DateFormatter("%d-%m"))
 plt.xticks(rotation=40, fontsize=8)
 
-plt.plot(x,y, label='Toplam Kredi')
+plt.plot(x,y, label='Total Loan')
 plt.title("weekly loan")
 plt.xlabel("Date")
 plt.ylabel("Volume")
